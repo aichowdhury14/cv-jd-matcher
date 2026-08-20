@@ -10,6 +10,7 @@ const ROLE_SKILLS = {
     "KPI Reporting", "Business Intelligence", "Data Storytelling",
     "VBA", "DAX", "Google BigQuery", "Snowflake", "Statistical Analysis",
     "Forecasting", "Data Modeling", "Stakeholder Management",
+    "SPSS", "STATA", "MIS Reporting", "Google Data Studio",
   ],
   "Data Engineer": [
     "Python", "SQL", "Apache Spark", "Apache Airflow", "Apache Kafka",
@@ -19,6 +20,7 @@ const ROLE_SKILLS = {
     "MongoDB", "Data Modeling", "CI/CD", "Terraform", "Linux",
     "Data Pipeline", "Distributed Systems", "Databricks", "Git",
     "Batch Processing", "Stream Processing", "REST API",
+    "Oracle", "SQL Server", "SSIS",
   ],
   "Data Scientist": [
     "Python", "R", "Machine Learning", "Deep Learning", "SQL",
@@ -29,6 +31,7 @@ const ROLE_SKILLS = {
     "Classification", "Clustering", "Time Series Analysis",
     "Neural Networks", "Big Data", "Spark", "Jupyter",
     "Experiment Design", "Data Mining", "Predictive Modeling",
+    "Power BI",
   ],
 };
 
