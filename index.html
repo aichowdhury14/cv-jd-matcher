@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV ↔ Job Description Matcher</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>🧑‍💻 CV ↔ Job Description Matcher</h1>
+      <p class="subtitle">
+        Built for Data Analyst, Data Engineer, and Data Scientist roles.
+        Upload a CV, paste a job description, and get a match score,
+        skill gap analysis, and role-fit breakdown — entirely in your browser.
+      </p>
+    </header>
+
+    <section class="two-col">
+      <div class="card">
+        <h2>1. Your CV</h2>
+        <label class="file-label" for="cv-file">Upload CV (PDF, DOCX, or TXT)</label>
+        <input type="file" id="cv-file" accept=".pdf,.docx,.txt" />
+        <p id="file-status" class="status"></p>
+        <label class="area-label" for="cv-text">...or paste your CV text here</label>
+        <textarea id="cv-text" rows="14" placeholder="Paste your CV text here..."></textarea>
+      </div>
+
+      <div class="card">
+        <h2>2. Job Description</h2>
+        <label class="area-label" for="role-select">Target role</label>
+        <select id="role-select"></select>
+        <button id="sample-btn" class="btn-secondary">Load a sample job description</button>
+        <label class="area-label" for="jd-text">Paste the job description here</label>
+        <textarea id="jd-text" rows="10" placeholder="Paste the job description here..."></textarea>
+      </div>
+    </section>
+
+    <div class="match-row">
+      <button id="match-btn" class="btn-primary">🔍 Match CV to Job Description</button>
+    </div>
+
+    <section id="results" class="card" hidden></section>
+
+    <details class="card">
+      <summary>How is the score calculated?</summary>
+      <p>The overall score blends two signals:</p>
+      <ul>
+        <li><strong>Skill coverage (65%)</strong> — the share of curated skills found in the
+          job description that also appear in your CV, using a taxonomy of common
+          Data Analyst / Data Engineer / Data Scientist tools, languages, and concepts.</li>
+        <li><strong>Text similarity (35%)</strong> — TF-IDF cosine similarity between the full
+          text of your CV and the job description, capturing broader overlap beyond
+          the fixed skill list.</li>
+      </ul>
+      <p>Nothing is uploaded anywhere — all parsing and matching runs entirely in your browser.</p>
+    </details>
+
+    <footer>Runs 100% client-side. No data leaves your browser.</footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mammoth@1.7.0/mammoth.browser.min.js"></script>
+  <script src="skills.js"></script>
+  <script src="sample-jds.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
